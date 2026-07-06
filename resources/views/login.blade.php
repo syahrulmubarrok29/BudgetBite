@@ -115,7 +115,7 @@
         }
     </style>
 </head>
-<body class="bg-background text-on-background font-body-md h-screen w-screen overflow-hidden flex">
+<body class="bg-background text-on-background font-body-md h-screen overflow-hidden flex">
     <!-- Split Screen Layout -->
     <div class="flex w-full h-full">
         <!-- Left Side: Visual/Photography (Hidden on Mobile) -->
@@ -129,7 +129,7 @@
         </div>
 
         <!-- Right Side: Form Container -->
-        <div class="w-full md:w-1/2 lg:w-2/5 flex items-center justify-center p-6 sm:p-12 relative overflow-y-auto bg-surface-container-lowest">
+        <div class="w-full md:w-1/2 lg:w-2/5 flex items-center justify-center p-6 sm:p-12 relative overflow-y-auto overflow-x-hidden bg-surface-container-lowest">
             <!-- Minimalist Decorative Background Element -->
             <div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             
@@ -160,16 +160,16 @@
                 <form class="space-y-6" action="{{ url('/login') }}" method="POST">
                     @csrf
                     <!-- Email Input -->
-                    <div class="relative group">
-                        <input class="floating-input peer w-full bg-transparent border-b border-outline text-on-surface py-3 px-0 focus:outline-none focus:border-primary transition-colors placeholder-transparent" id="email" name="email" placeholder="Email Address" required="" type="email" value="{{ old('email') }}"/>
-                        <label class="floating-label absolute left-0 top-3 font-body-md text-body-md text-on-surface-variant transition-all duration-200 pointer-events-none origin-left group-focus-within:text-primary group-focus-within:font-semibold group-focus-within:-translate-y-6 group-focus-within:scale-85" for="email">Alamat Email</label>
+                    <div>
+                        <label class="block font-label-md text-on-surface-variant mb-1.5" for="email">Alamat Email</label>
+                        <input class="w-full bg-white border border-gray-200 rounded-[10px] text-on-surface py-3 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors placeholder:text-gray-400" id="email" name="email" placeholder="Masukkan email Anda" required="" type="email" value="{{ old('email') }}"/>
                     </div>
 
                     <!-- Password Input -->
-                    <div class="relative group">
-                        <input class="floating-input peer w-full bg-transparent border-b border-outline text-on-surface py-3 px-0 focus:outline-none focus:border-primary transition-colors placeholder-transparent" id="password" name="password" placeholder="Password" required="" type="password"/>
-                        <label class="floating-label absolute left-0 top-3 font-body-md text-body-md text-on-surface-variant transition-all duration-200 pointer-events-none origin-left group-focus-within:text-primary group-focus-within:font-semibold group-focus-within:-translate-y-6 group-focus-within:scale-85" for="password">Kata Sandi</label>
-                        <button class="absolute right-0 top-3 text-on-surface-variant hover:text-primary transition-colors focus:outline-none" type="button" onclick="const p = document.getElementById('password'); p.type = p.type === 'password' ? 'text' : 'password'; this.querySelector('span').textContent = p.type === 'password' ? 'visibility' : 'visibility_off';">
+                    <div class="relative">
+                        <label class="block font-label-md text-on-surface-variant mb-1.5" for="password">Kata Sandi</label>
+                        <input class="w-full bg-white border border-gray-200 rounded-[10px] text-on-surface py-3 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors placeholder:text-gray-400" id="password" name="password" placeholder="Masukkan kata sandi Anda" required="" type="password"/>
+                        <button class="absolute right-3 top-[38px] text-gray-400 hover:text-primary transition-colors focus:outline-none" type="button" onclick="const p = document.getElementById('password'); p.type = p.type === 'password' ? 'text' : 'password'; this.querySelector('span').textContent = p.type === 'password' ? 'visibility' : 'visibility_off';">
                             <span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
                         </button>
                     </div>
@@ -189,21 +189,6 @@
                         <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
                     </button>
                 </form>
-
-                <!-- Demo info (from original layout) -->
-                <div class="mt-8 pt-6 border-t border-surface-variant">
-                    <p class="font-label-sm text-label-sm text-on-surface-variant mb-2">Akun Demo:</p>
-                    <div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/50 text-sm space-y-2">
-                        <div class="flex justify-between">
-                            <span class="text-on-surface-variant">Admin:</span>
-                            <span class="font-semibold text-on-surface font-mono">admin@example.com / password</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-on-surface-variant">User:</span>
-                            <span class="font-semibold text-on-surface font-mono">user@example.com / password</span>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
